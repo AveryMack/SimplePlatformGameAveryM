@@ -60,9 +60,9 @@ local rArrow
 local uArrow
 
 local motionx = 0
-local SPEED = 5
+local SPEED = 4
 local LINEAR_VELOCITY = -100
-local GRAVITY = 7
+local GRAVITY = 8
 
 local leftW 
 local topW
@@ -74,6 +74,13 @@ local theBall
 
 local questionsAnswered = 0
 
+-- add sound for the you lose screen
+local youLoseSound = audio.loadSound("Sounds/BoingSoundEffect.mp3")
+local youLoseSoundChannel
+
+-- add sound for the spikes
+local popSound = audio.loadSound("Sounds/Pop.mp3")
+local popSoundChannel
 -----------------------------------------------------------------------------------------
 -- LOCAL SCENE FUNCTIONS
 ----------------------------------------------------------------------------------------- 
@@ -161,6 +168,7 @@ end
 
 local function YouLoseTransition()
     composer.gotoScene( "you_lose" )
+    youLoseSoundChannel = audio.play(youLoseSound)
 end
 
 local function onCollision( self, event )
