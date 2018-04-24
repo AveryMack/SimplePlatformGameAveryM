@@ -176,6 +176,9 @@ local function PositionAnswers()
         wrongText2.x = X1
         wrongText2.y = Y2
 
+        wrongText3.x = X2
+        wrongText3.y = Y2
+
         
     elseif (answerPosition == 2) then
 
@@ -187,6 +190,9 @@ local function PositionAnswers()
             
         wrongText2.x = X2
         wrongText2.y = Y1
+
+        wrongText3.x = X2
+        wrongText3.y = Y2
 
 
     elseif (answerPosition == 3) then
