@@ -86,7 +86,7 @@ local popSound = audio.loadSound("Sounds/Pop.mp3")
 local popSoundChannel
 
 -- set the scroll speed 
-scrollSpeed = 4
+scrollSpeed = 8
 -----------------------------------------------------------------------------------------
 -- LOCAL SCENE FUNCTIONS
 ----------------------------------------------------------------------------------------- 
@@ -99,7 +99,7 @@ end
 
 -- When left arrow is touched, move character left
 local function left (touch)
-    motionx = SPEED
+    motionx = -SPEED
     character.xScale = -1
 end
 
@@ -113,11 +113,6 @@ end
 -- Move character horizontally
 local function movePlayer (event)
     character.x = character.x + motionx
-end
-
--- Move character to the left 
-local function leftPlayer (event)
-    character.x = character.x - scrollSpeed
 end
  
 -- Stop character movement when no arrow is pushed
@@ -143,13 +138,11 @@ end
 local function AddRuntimeListeners()
     Runtime:addEventListener("enterFrame", movePlayer)
     Runtime:addEventListener("touch", stop )
-    Runtime:addEventListener("enterFrame", leftPlayer)
 end
 
 local function RemoveRuntimeListeners()
     Runtime:removeEventListener("enterFrame", movePlayer)
     Runtime:removeEventListener("touch", stop )
-    Runtime:removeEventListener("enterFrame", leftPlayer)
 end
 
 
@@ -234,6 +227,18 @@ local function onCollision( self, event )
                 timer.performWithDelay(200, YouLoseTransition)
             end
         end
+
+        if (event.target.myName == "door")
+            (event.taget.myName == "ball1")
+            (event.target.myName == "ball2")
+            (event.target.myName == "ball3") then
+            
+
+
+
+
+
+
 
         if  (event.target.myName == "ball1") or
             (event.target.myName == "ball2") or
@@ -515,7 +520,7 @@ function scene:create( event )
     -- Insert objects into the scene group in order to ONLY be associated with this scene
     sceneGroup:insert( leftW )
 
-    rightW = display.newLine( 0, 0, 0, display.contentHeight)
+    rightW = display.newLine( display.contentWidth, 0, display.contentWidth, display.contentHeight)
     rightW.isVisible = true
 
     -- Insert objects into the scene group in order to ONLY be associated with this scene
