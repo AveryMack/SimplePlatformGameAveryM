@@ -61,9 +61,9 @@ local uArrow
 local lArrow
 
 local motionx = 0
-local SPEED = 4
+local SPEED = 8
 local LINEAR_VELOCITY = -100
-local GRAVITY = 8
+local GRAVITY = 10
 
 local leftW 
 local topW
@@ -227,16 +227,7 @@ local function onCollision( self, event )
                 timer.performWithDelay(200, YouLoseTransition)
             end
         end
-
-        if (event.target.myName == "door")
-            (event.taget.myName == "ball1")
-            (event.target.myName == "ball2")
-            (event.target.myName == "ball3") then
             
-
-
-
-
 
 
 
